@@ -197,11 +197,8 @@ body {
 }
 
 .header__menu {
-  position: absolute;
   width: 100%;
   background: #1FA181;
-  height: 43px;
-  left: 0;
 }
 
 .menu {
@@ -209,7 +206,6 @@ body {
 }
 
 .menu__list {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,7 +242,6 @@ body {
           align-items: center;
   position: relative;
   background: #F8FBFA;
-  margin-top: 43px;
 }
 .main-block__container {
   display: -webkit-box;
@@ -280,4 +275,173 @@ body {
   right: 0;
   max-width: 950px;
   max-height: 532px;
+}
+
+/*---check-up------------------------------------------------*/
+.check-up {
+  padding-top: 100px;
+}
+
+.check-up__container {
+  position: relative;
+  background: #E2F0EF url("/img/check-up/doctor-working-table.jpg") right no-repeat;
+  background-size: contain;
+  height: 440px;
+}
+.check-up__container::before {
+  content: "";
+  /* background-color: #E2F0EF; */
+  position: absolute;
+  left: 40%;
+  height: 100%;
+  width: 174px; /* Ширина нижней стороны трапеции */
+  border-bottom: 440px solid #E2F0EF; /* Высота трапеции */
+  border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
+  border-right: 115px solid transparent; /* Ширина верхней стороны трапеции */
+  overflow: hidden;
+}
+
+.check-up__body {
+  padding: 53px 0 0 63px;
+}
+
+.check-up__title {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 49px;
+  text-transform: uppercase;
+  color: #364844;
+}
+
+.check-up__subtitle {
+  margin-top: 2px;
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: #364844;
+}
+
+.check-up__list {
+  margin-top: 16px;
+  list-style-type: none;
+}
+.check-up__list .items {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #364844;
+}
+.check-up__list .item {
+  position: relative;
+  padding-left: 16px; /* 9px от начала каждой строчки + 7px для точки */
+  line-height: 1.4;
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #364844;
+}
+.check-up__list .item:not(:last-child) {
+  margin-bottom: 13px; /* Расстояние между строками списка, кроме последней строки */
+}
+.check-up__list .item::before {
+  content: "";
+  position: absolute;
+  top: 7px; /* Расстояние точки от начала каждой строчки */
+  left: 0;
+  width: 7px;
+  height: 7px;
+  background: #1FA181;
+  border-radius: 50%;
+}
+
+.check-up__price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 33px;
+}
+.check-up__price .price__discount {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #364844;
+  margin-right: 16px;
+}
+.check-up__price .price__full {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration-line: line-through;
+  color: #868686;
+}
+
+.check-up__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.check-up__button {
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 196px;
+  height: 43px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  margin: 26px 0;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.check-up__button:hover {
+  background: #00D29F;
+}
+.check-up__button:not(:last-child) {
+  margin-right: 14px;
+}
+
+.check-up__button_green {
+  background: #0DBC91;
+  color: #FFFFFF;
+}
+
+.check-up__button_border {
+  border: 1px solid #0DBC91;
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #0DBC91;
+}
+.check-up__button_border:hover {
+  color: #FFFFFF;
+  background: #0DBC91;
+  border: 1px solid #0DBC91;
 }
