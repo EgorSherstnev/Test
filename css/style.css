@@ -417,8 +417,9 @@ body {
   margin: 26px 0;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  z-index: 2;
 }
-.check-up__button:hover {
+.check-up__button:hover, .check-up__button:active {
   background: #00D29F;
 }
 .check-up__button:not(:last-child) {
@@ -440,8 +441,62 @@ body {
   text-align: center;
   color: #0DBC91;
 }
-.check-up__button_border:hover {
+.check-up__button_border:hover, .check-up__button_border:active {
   color: #FFFFFF;
   background: #0DBC91;
   border: 1px solid #0DBC91;
+}
+
+/*------page__navigation--------------*/
+.navigation__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 34px 0 92px;
+}
+
+.navigation__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 169px;
+  height: 34px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.block__number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: PT Sans Caption;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #C0C0C0;
+}
+.block__number .number__active-page {
+  color: #364844;
+}
+
+.block__left-arrow svg :hover,
+.block__left-arrow svg :active {
+  fill: #0DBC91;
+}
+
+.right-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
