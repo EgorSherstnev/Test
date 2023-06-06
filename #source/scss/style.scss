@@ -20,7 +20,11 @@ body {
    padding: 0 15px;
    margin: 0px auto;
    box-sizing: content-box;
+   /*@media screen and (max-width: 500px) {
+      width: 80%;
+   }*/
 }
+
 
 .header__contacts {
    display: flex;
@@ -28,25 +32,50 @@ body {
    align-items: center;
    margin-top: 22px;
    padding-bottom: 12px;
+
+   @media (max-width: 680px) {
+      flex-direction: column; /* Изменяем направление на столбец */
+   }
 }
 
 .contacts__left {
    display: flex;
    justify-content: flex-start;
    align-items: center;
+
+   
 }
 
 .left-contacts__logo {
 
 }
 
+.left-contacts__burger-open {
+   display: none; /* Скрыть изображение по умолчанию */
+   
+   @media (max-width: 680px) {
+      display: flex; /* Показать изображение на маленьких экранах */
+      align-items: center;
+      margin-right: 43px; /* Добавить отступ справа */
+   }
+}
+
 .left-contacts__address {
    margin-left: 24px;
    display: flex;
+
+   @media (max-width: 680px) {
+      flex-direction: column; /* Изменяем направление на столбец */
+      align-items: flex-start; /* Выравниваем элементы по левому краю */
+   }
 }
 
 .address__icon {
    margin-top: -7px;
+
+   @media (max-width: 680px) {
+      display: none; /* Скрыть иконку на маленьких экранах */
+   }
 }
 
 .address__icon img {
@@ -67,6 +96,10 @@ body {
    font-weight: 400;
    font-size: 14px;
    line-height: 150%;
+
+   @media (max-width: 680px) {
+      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+   }
 }
 
 .address__subtitle {
@@ -74,16 +107,28 @@ body {
    font-weight: 400;
    font-size: 14px;
    /* line-height: 150%; */
+
+   @media (max-width: 680px) {
+      display: none; /* Скрываем адрес на маленьких экранах */
+   }
 }
 
 .contacts__right {
    display: flex;
    align-items: center;
+
+   @media (max-width: 680px) {
+      margin-top: 12px; /* Добавляем отступ сверху */
+   }
 }
 
 .right-contacts__phone {
    color: #364844;
    margin-left: 11px;
+
+   @media (max-width: 680px) {
+      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+   }
 }
 
 .right-contacts__btn {
@@ -100,7 +145,8 @@ body {
    &:hover,
    &:active {
       background: #00D29F;
-}
+   }
+
 }
 
 .header__menu {
@@ -127,6 +173,36 @@ body {
    line-height: 150%;
    color: #FFFFFF;
 }
+
+@media (max-width: 680px) {
+   .address__title {
+      order: -1; /* Изменяем порядок элементов, чтобы заголовок был выше */
+   }
+
+   .right-contacts__phone {
+      //margin-top: 8px; /* Добавляем отступ сверху */
+   }
+
+   .right-contacts__icon {
+      display: none; /* Скрыть иконку на маленьких экранах */
+   }
+
+   .address__subtitle {
+      display: none; /* Скрываем адрес на маленьких экранах */
+   }
+
+   .right-contacts__btn {
+      display: none; 
+   }
+
+   .right-contacts__phone {
+      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+   }
+   .header__menu {
+      display: none;
+   }
+}
+
  
 /*---PAGE----------------------------------------------------------*/ 
 
@@ -178,7 +254,7 @@ body {
 .check-up {
    padding-top: 100px;
 }
-.check-up__container {
+.check-up__body {
    position: relative;
    background: #E2F0EF url('/img/check-up/doctor-working-table.jpg')right no-repeat;
    background-size:contain;
@@ -187,12 +263,13 @@ body {
       content: '';
       /* background-color: #E2F0EF; */
       position: absolute;
-      left: 40%;
+      top: 0;
+      left: 39%;
       height: 100%;
-      width: 174px; /* Ширина нижней стороны трапеции */
+      width: 170px; /* Ширина нижней стороны трапеции */
       border-bottom: 440px solid #E2F0EF; /* Высота трапеции */
       border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
-      border-right: 115px solid transparent; /* Ширина верхней стороны трапеции */
+      border-right: 120px solid transparent; /* Ширина верхней стороны трапеции */
       overflow: hidden;
     }
 }
@@ -369,4 +446,21 @@ body {
 }
 .right-arrow {
    transform: rotate(180deg)
+}
+/*------FOOTER-----------------------------*/
+.footer {
+   background-color: #08664F;
+   padding: 35px 0;
+}
+.footer__main {
+   display: flex;
+   justify-content: space-between;
+}
+.contacts__social {
+   display: flex;
+}
+.social__item{
+   &:not(:last-child) {
+      margin-right: 15px;
+   }
 }

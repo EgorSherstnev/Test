@@ -96,6 +96,9 @@ body {
   margin: 0px auto;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
+  /*@media screen and (max-width: 500px) {
+     width: 80%;
+  }*/
 }
 
 .header__contacts {
@@ -111,6 +114,14 @@ body {
   margin-top: 22px;
   padding-bottom: 12px;
 }
+@media (max-width: 680px) {
+  .header__contacts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; /* Изменяем направление на столбец */
+  }
+}
 
 .contacts__left {
   display: -webkit-box;
@@ -124,15 +135,46 @@ body {
           align-items: center;
 }
 
+.left-contacts__burger-open {
+  display: none; /* Скрыть изображение по умолчанию */
+}
+@media (max-width: 680px) {
+  .left-contacts__burger-open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; /* Показать изображение на маленьких экранах */
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 43px; /* Добавить отступ справа */
+  }
+}
+
 .left-contacts__address {
   margin-left: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+@media (max-width: 680px) {
+  .left-contacts__address {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; /* Изменяем направление на столбец */
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; /* Выравниваем элементы по левому краю */
+  }
+}
 
 .address__icon {
   margin-top: -7px;
+}
+@media (max-width: 680px) {
+  .address__icon {
+    display: none; /* Скрыть иконку на маленьких экранах */
+  }
 }
 
 .address__icon img {
@@ -159,12 +201,24 @@ body {
   font-size: 14px;
   line-height: 150%;
 }
+@media (max-width: 680px) {
+  .address__title {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+  }
+}
 
 .address__subtitle {
   color: #868686;
   font-weight: 400;
   font-size: 14px;
   /* line-height: 150%; */
+}
+@media (max-width: 680px) {
+  .address__subtitle {
+    display: none; /* Скрываем адрес на маленьких экранах */
+  }
 }
 
 .contacts__right {
@@ -175,10 +229,22 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+@media (max-width: 680px) {
+  .contacts__right {
+    margin-top: 12px; /* Добавляем отступ сверху */
+  }
+}
 
 .right-contacts__phone {
   color: #364844;
   margin-left: 11px;
+}
+@media (max-width: 680px) {
+  .right-contacts__phone {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+  }
 }
 
 .right-contacts__btn {
@@ -224,6 +290,30 @@ body {
   color: #FFFFFF;
 }
 
+@media (max-width: 680px) {
+  .address__title {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1; /* Изменяем порядок элементов, чтобы заголовок был выше */
+  }
+  .right-contacts__icon {
+    display: none; /* Скрыть иконку на маленьких экранах */
+  }
+  .address__subtitle {
+    display: none; /* Скрываем адрес на маленьких экранах */
+  }
+  .right-contacts__btn {
+    display: none;
+  }
+  .right-contacts__phone {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+  }
+  .header__menu {
+    display: none;
+  }
+}
 /*---PAGE----------------------------------------------------------*/
 ._ibg {
   position: absolute;
@@ -282,22 +372,23 @@ body {
   padding-top: 100px;
 }
 
-.check-up__container {
+.check-up__body {
   position: relative;
   background: #E2F0EF url("/img/check-up/doctor-working-table.jpg") right no-repeat;
   background-size: contain;
   height: 440px;
 }
-.check-up__container::before {
+.check-up__body::before {
   content: "";
   /* background-color: #E2F0EF; */
   position: absolute;
-  left: 40%;
+  top: 0;
+  left: 39%;
   height: 100%;
-  width: 174px; /* Ширина нижней стороны трапеции */
+  width: 170px; /* Ширина нижней стороны трапеции */
   border-bottom: 440px solid #E2F0EF; /* Высота трапеции */
   border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
-  border-right: 115px solid transparent; /* Ширина верхней стороны трапеции */
+  border-right: 120px solid transparent; /* Ширина верхней стороны трапеции */
   overflow: hidden;
 }
 
@@ -499,4 +590,29 @@ body {
 .right-arrow {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+/*------FOOTER-----------------------------*/
+.footer {
+  background-color: #08664F;
+  padding: 35px 0;
+}
+
+.footer__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contacts__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.social__item:not(:last-child) {
+  margin-right: 15px;
 }
