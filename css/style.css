@@ -123,6 +123,21 @@ body {
   }
 }
 
+.contacts__center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 .contacts__left {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,11 +150,11 @@ body {
           align-items: center;
 }
 
-.left-contacts__burger-open {
+.contacts__burger-open {
   display: none; /* Скрыть изображение по умолчанию */
 }
 @media (max-width: 680px) {
-  .left-contacts__burger-open {
+  .contacts__burger-open {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; /* Показать изображение на маленьких экранах */
@@ -150,14 +165,14 @@ body {
   }
 }
 
-.left-contacts__address {
+.contacts__address {
   margin-left: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 @media (max-width: 680px) {
-  .left-contacts__address {
+  .contacts__address {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -221,6 +236,27 @@ body {
   }
 }
 
+.contacts__watsapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacts__phone {
+  color: #364844;
+  margin-left: 11px;
+}
+@media (max-width: 680px) {
+  .contacts__phone {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+  }
+}
+
 .contacts__right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -247,7 +283,7 @@ body {
   }
 }
 
-.right-contacts__btn {
+.contacts__btn {
   width: 196px;
   height: 43px;
   background: #0DBC91;
@@ -258,7 +294,7 @@ body {
   color: #FFFFFF;
   margin-left: 35px;
 }
-.right-contacts__btn:hover, .right-contacts__btn:active {
+.contacts__btn:hover, .contacts__btn:active {
   background: #00D29F;
 }
 
@@ -290,13 +326,45 @@ body {
   color: #FFFFFF;
 }
 
+@media (max-width: 720px) {
+  .header__contacts_1 {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .right-contacts__btn {
+    display: none;
+  }
+  .contacts__center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin-left: 60px;
+  }
+  .header__menu {
+    display: none;
+  }
+  .left-contacts__burger-open {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; /* Показать изображение на маленьких экранах */
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 43px; /* Добавить отступ справа */
+  }
+}
 @media (max-width: 680px) {
   .address__title {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1; /* Изменяем порядок элементов, чтобы заголовок был выше */
   }
-  .right-contacts__icon {
+  .contacts__icon {
     display: none; /* Скрыть иконку на маленьких экранах */
   }
   .address__subtitle {
@@ -318,6 +386,10 @@ body {
 ._ibg {
   position: absolute;
 }
+._ibg img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .page {
   -webkit-box-flex: 1;
@@ -338,11 +410,25 @@ body {
   display: -ms-flexbox;
   display: flex;
 }
+@media (max-width: 680px) {
+  .main-block__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
 .main-block__body {
   padding: 144px 0px 162px 0px;
   position: relative;
   max-width: 400px;
   max-height: 532px;
+  z-index: 2;
+}
+@media (max-width: 375px) {
+  .main-block__body {
+    padding: 34px 0px 53px 0px;
+  }
 }
 
 .main-block__title {
@@ -350,6 +436,12 @@ body {
   line-height: 47px;
   font-weight: 700;
   color: #364844;
+}
+@media (max-width: 375px) {
+  .main-block__title {
+    font-size: 26px;
+    line-height: 34px;
+  }
 }
 
 .main-block__text {
@@ -359,6 +451,12 @@ body {
   font-size: 16px;
   line-height: 150%;
 }
+@media (max-width: 375px) {
+  .main-block__text {
+    font-size: 14px;
+    line-height: 150%;
+  }
+}
 
 .main-block__image {
   position: absolute;
@@ -366,7 +464,25 @@ body {
   max-width: 950px;
   max-height: 532px;
 }
+@media (max-width: 1180px) {
+  .main-block__image {
+    opacity: 0.5;
+  }
+}
+@media (max-width: 680px) {
+  .main-block__image {
+    opacity: 1;
+  }
+}
 
+@media (max-width: 680px) {
+  .main-block__image {
+    position: static;
+    max-width: initial;
+    max-height: initial;
+    margin-bottom: 20px; /* Добавьте нужный отступ снизу */
+  }
+}
 /*---check-up------------------------------------------------*/
 .check-up {
   padding-top: 100px;
@@ -390,6 +506,12 @@ body {
   border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
   border-right: 120px solid transparent; /* Ширина верхней стороны трапеции */
   overflow: hidden;
+}
+@media (max-width: 1165px) {
+  .check-up__body {
+    height: 880px;
+    background: #E2F0EF url("/img/check-up/doctor-working-table.jpg") top left no-repeat;
+  }
 }
 
 .check-up__body {

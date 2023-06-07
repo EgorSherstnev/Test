@@ -38,6 +38,14 @@ body {
    }
 }
 
+//
+.contacts__center {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-grow: 1;
+}
+
 .contacts__left {
    display: flex;
    justify-content: flex-start;
@@ -50,7 +58,7 @@ body {
 
 }
 
-.left-contacts__burger-open {
+.contacts__burger-open {
    display: none; /* Скрыть изображение по умолчанию */
    
    @media (max-width: 680px) {
@@ -60,7 +68,7 @@ body {
    }
 }
 
-.left-contacts__address {
+.contacts__address {
    margin-left: 24px;
    display: flex;
 
@@ -113,6 +121,19 @@ body {
    }
 }
 
+.contacts__watsapp {
+   display: flex;
+   align-items: center;
+}
+.contacts__phone {
+   color: #364844;
+   margin-left: 11px;
+
+   @media (max-width: 680px) {
+      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
+   }
+}
+
 .contacts__right {
    display: flex;
    align-items: center;
@@ -131,7 +152,7 @@ body {
    }
 }
 
-.right-contacts__btn {
+.contacts__btn {
    width: 196px;
    height: 43px;
    background: #0DBC91;
@@ -174,6 +195,32 @@ body {
    color: #FFFFFF;
 }
 
+@media (max-width: 720px) {
+   .header__contacts_1 {
+      align-items: flex-start;
+   }
+   .address__title {
+      
+   }
+   .right-contacts__btn {
+      display: none; 
+   }
+   .contacts__center {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-left: 60px;
+   }
+
+   .header__menu {
+      display: none;
+   }
+   .left-contacts__burger-open {
+      display: flex; /* Показать изображение на маленьких экранах */
+      align-items: center;
+      margin-right: 43px; /* Добавить отступ справа */
+   }
+}
+
 @media (max-width: 680px) {
    .address__title {
       order: -1; /* Изменяем порядок элементов, чтобы заголовок был выше */
@@ -183,7 +230,7 @@ body {
       //margin-top: 8px; /* Добавляем отступ сверху */
    }
 
-   .right-contacts__icon {
+   .contacts__icon {
       display: none; /* Скрыть иконку на маленьких экранах */
    }
 
@@ -208,6 +255,9 @@ body {
 
 ._ibg{
    position:absolute;
+   img {
+      object-fit: cover;
+   }
 }
 .page{
    flex: 1 1 auto;
@@ -219,12 +269,19 @@ body {
    background: #F8FBFA;
    &__container{
       display: flex;
+      @media (max-width: 680px) {
+         flex-direction: column-reverse;
+      }
    }
    &__body {
       padding: 144px 0px 162px 0px;
       position: relative;
       max-width: 400px;
       max-height: 532px;
+      z-index: 2;
+      @media (max-width: 375px) {
+         padding: 34px 0px 53px 0px;
+      }
   }
 }
 .main-block__body > *:not(:last-child){
@@ -235,6 +292,10 @@ body {
    line-height: 47px;
    font-weight: 700;
    color: #364844;
+   @media (max-width: 375px) {
+      font-size: 26px;
+      line-height: 34px;
+   }
 }
 .main-block__text {
    margin-top: 14px;
@@ -242,13 +303,33 @@ body {
    font-weight: 400;
    font-size: 16px;
    line-height: 150%;
+   @media (max-width: 375px) {
+      font-size: 14px;
+      line-height: 150%;
+   }
 }
 .main-block__image {
    position: absolute;
    right: 0;
    max-width: 950px;
    max-height: 532px;
+   @media (max-width: 1180px) {
+      opacity: 0.5;
+   }
+   @media (max-width: 680px) {
+      opacity: 1;
+
+    }
 }
+
+@media (max-width: 680px) {
+   .main-block__image {
+     position: static;
+     max-width: initial;
+     max-height: initial;
+     margin-bottom: 20px; /* Добавьте нужный отступ снизу */
+   }
+ }
 
 /*---check-up------------------------------------------------*/
 .check-up {
@@ -271,7 +352,11 @@ body {
       border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
       border-right: 120px solid transparent; /* Ширина верхней стороны трапеции */
       overflow: hidden;
-    }
+   }
+   @media (max-width: 1165px) {
+      height: 880px;
+      background: #E2F0EF url('/img/check-up/doctor-working-table.jpg')top left no-repeat;
+   }
 }
 .check-up__body{
    padding: 53px 0 0 63px;
