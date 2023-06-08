@@ -33,9 +33,6 @@ body {
    margin-top: 22px;
    padding-bottom: 12px;
 
-   @media (max-width: 680px) {
-      flex-direction: column; /* Изменяем направление на столбец */
-   }
 }
 
 //
@@ -54,14 +51,14 @@ body {
    
 }
 
-.left-contacts__logo {
+.contacts__logo {
 
 }
 
 .contacts__burger-open {
    display: none; /* Скрыть изображение по умолчанию */
    
-   @media (max-width: 680px) {
+   @media (max-width: 720px) {
       display: flex; /* Показать изображение на маленьких экранах */
       align-items: center;
       margin-right: 43px; /* Добавить отступ справа */
@@ -71,19 +68,10 @@ body {
 .contacts__address {
    margin-left: 24px;
    display: flex;
-
-   @media (max-width: 680px) {
-      flex-direction: column; /* Изменяем направление на столбец */
-      align-items: flex-start; /* Выравниваем элементы по левому краю */
-   }
 }
 
 .address__icon {
    margin-top: -7px;
-
-   @media (max-width: 680px) {
-      display: none; /* Скрыть иконку на маленьких экранах */
-   }
 }
 
 .address__icon img {
@@ -104,21 +92,12 @@ body {
    font-weight: 400;
    font-size: 14px;
    line-height: 150%;
-
-   @media (max-width: 680px) {
-      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
-   }
 }
 
 .address__subtitle {
    color: #868686;
    font-weight: 400;
    font-size: 14px;
-   /* line-height: 150%; */
-
-   @media (max-width: 680px) {
-      display: none; /* Скрываем адрес на маленьких экранах */
-   }
 }
 
 .contacts__watsapp {
@@ -128,28 +107,16 @@ body {
 .contacts__phone {
    color: #364844;
    margin-left: 11px;
-
-   @media (max-width: 680px) {
-      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
-   }
 }
 
 .contacts__right {
    display: flex;
    align-items: center;
-
-   @media (max-width: 680px) {
-      margin-top: 12px; /* Добавляем отступ сверху */
-   }
 }
 
 .right-contacts__phone {
    color: #364844;
    margin-left: 11px;
-
-   @media (max-width: 680px) {
-      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
-   }
 }
 
 .contacts__btn {
@@ -196,57 +163,46 @@ body {
 }
 
 @media (max-width: 720px) {
-   .header__contacts_1 {
-      align-items: flex-start;
-   }
    .address__title {
-      
+      font-family: 'PT Sans Caption';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 17px;
+
+      text-align: right;
+
+      color: #364844;
    }
-   .right-contacts__btn {
+   .contacts__phone {
+      font-family: 'PT Sans Caption';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 21px;
+
+      text-align: right;
+
+      color: #364844;
+
+   }
+   .contacts__btn,
+   .contacts__icon,
+   .header__menu,
+   .address__icon,
+   .address__subtitle {
       display: none; 
    }
    .contacts__center {
       display: flex;
       flex-direction: column-reverse;
-      margin-left: 60px;
-   }
-
-   .header__menu {
-      display: none;
+      height: 38px;
+      align-items:flex-end;
    }
    .left-contacts__burger-open {
       display: flex; /* Показать изображение на маленьких экранах */
       align-items: center;
       margin-right: 43px; /* Добавить отступ справа */
-   }
-}
-
-@media (max-width: 680px) {
-   .address__title {
-      order: -1; /* Изменяем порядок элементов, чтобы заголовок был выше */
-   }
-
-   .right-contacts__phone {
-      //margin-top: 8px; /* Добавляем отступ сверху */
-   }
-
-   .contacts__icon {
-      display: none; /* Скрыть иконку на маленьких экранах */
-   }
-
-   .address__subtitle {
-      display: none; /* Скрываем адрес на маленьких экранах */
-   }
-
-   .right-contacts__btn {
-      display: none; 
-   }
-
-   .right-contacts__phone {
-      order: -1; /* Изменяем порядок элементов, чтобы телефон был выше */
-   }
-   .header__menu {
-      display: none;
    }
 }
 
