@@ -77,6 +77,9 @@ h1, h2, h3, h4, h5, h6 {
 body {
   font-family: "PT Sans Caption";
 }
+body._lock {
+  overflow: hidden;
+}
 
 .wrapper {
   min-height: 100%;
@@ -101,6 +104,10 @@ body {
   }*/
 }
 
+.header__container {
+  padding: 12px;
+}
+
 .header__contacts {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -111,8 +118,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 22px;
-  padding-bottom: 12px;
 }
 
 .contacts__center {
@@ -144,17 +149,6 @@ body {
 
 .contacts__burger-open {
   display: none; /* Скрыть изображение по умолчанию */
-}
-@media (max-width: 720px) {
-  .contacts__burger-open {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; /* Показать изображение на маленьких экранах */
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-right: 43px; /* Добавить отступ справа */
-  }
 }
 
 .contacts__address {
@@ -242,13 +236,28 @@ body {
   background: #00D29F;
 }
 
-.header__menu {
-  width: 100%;
-  background: #1FA181;
+.contacts__btn2 {
+  width: 196px;
+  height: 43px;
+  background: #F6F6F6;
+  border-radius: 50px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #1FA181;
 }
 
-.menu {
-  padding: 10px;
+@media (min-width: 767px) {
+  .header__menu {
+    width: 100%;
+    background: #1FA181;
+  }
+  .menu {
+    padding: 10px;
+  }
+}
+.header__menu button {
+  display: none; /* Скрыть изображение по умолчанию */
 }
 
 .menu__list {
@@ -259,6 +268,9 @@ body {
       flex-wrap: wrap;
 }
 
+.menu__item :hover {
+  text-decoration: underline;
+}
 .menu__item:not(:last-child) {
   margin-right: 30px;
 }
@@ -270,7 +282,19 @@ body {
   color: #FFFFFF;
 }
 
-@media (max-width: 720px) {
+/*-------------------------------*/
+/*-------------------------------*/
+@media (max-width: 767px) {
+  .header__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .header__contacts {
+    padding-right: 18px;
+  }
   .address__title {
     font-family: "PT Sans Caption";
     font-style: normal;
@@ -291,7 +315,6 @@ body {
   }
   .contacts__btn,
 .contacts__icon,
-.header__menu,
 .address__icon,
 .address__subtitle {
     display: none;
@@ -309,14 +332,107 @@ body {
         -ms-flex-align: end;
             align-items: flex-end;
   }
-  .left-contacts__burger-open {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; /* Показать изображение на маленьких экранах */
+  .contacts__burger-open {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-right: 43px; /* Добавить отступ справа */
+    margin-right: 43px;
+    cursor: pointer;
+  }
+  .contacts__burger-open span, .contacts__burger-open::before, .contacts__burger-open::after {
+    left: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    background: #1FA181;
+  }
+  .contacts__burger-open::before, .contacts__burger-open::after {
+    content: "";
+  }
+  .contacts__burger-open::before {
+    top: 0;
+  }
+  .contacts__burger-open::after {
+    bottom: 0;
+  }
+  .contacts__burger-open span {
+    top: 50%;
+    -webkit-transform: scale(1) translate(0px, -50%);
+            transform: scale(1) translate(0px, -50%);
+  }
+  .contacts__burger-open._active span {
+    -webkit-transform: scale(0) translate(0px, -50%);
+            transform: scale(0) translate(0px, -50%);
+  }
+  .contacts__burger-open._active::before {
+    top: 50%;
+    -webkit-transform: rotate(-45deg) translate(0px, -50%);
+            transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .contacts__burger-open._active::after {
+    bottom: 50%;
+    -webkit-transform: rotate(45deg) translate(0px, 50%);
+            transform: rotate(45deg) translate(0px, 50%);
+  }
+  .header__menu {
+    z-index: 5;
+    position: absolute;
+    top: 65px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(69, 146, 127, 0.9);
+    -webkit-transition: left 0.3s ease 0s;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
+  }
+  .header__menu._active {
+    left: 0;
+  }
+  .header__menu._active button {
+    display: block;
+  }
+  .header__menu ::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 70px;
+    background: #F7F7F7;
+    z-index: 6;
+  }
+  .header__menu .menu__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 48px 0 39px 4px;
+  }
+  .header__menu .menu__list .menu__item .menu__link {
+    font-family: "PT Sans Caption";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+  }
+  .header__menu .menu__list .menu__item :hover {
+    text-decoration: underline;
+  }
+  .header__menu .menu__list .menu__item:not(:last-child) {
+    margin-bottom: 10px;
   }
 }
 /*---PAGE----------------------------------------------------------*/
@@ -423,35 +539,28 @@ body {
 /*---check-up------------------------------------------------*/
 .check-up {
   padding-top: 100px;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
 .check-up__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.check-up__content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  min-width: 439px;
   position: relative;
-  background: #E2F0EF url("/img/check-up/doctor-working-table.jpg") right no-repeat;
-  background-size: contain;
+  background: #E2F0EF;
   height: 440px;
-}
-.check-up__body::before {
-  content: "";
-  /* background-color: #E2F0EF; */
-  position: absolute;
-  top: 0;
-  left: 39%;
-  height: 100%;
-  width: 170px; /* Ширина нижней стороны трапеции */
-  border-bottom: 440px solid #E2F0EF; /* Высота трапеции */
-  border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
-  border-right: 120px solid transparent; /* Ширина верхней стороны трапеции */
-  overflow: hidden;
-}
-@media (max-width: 1165px) {
-  .check-up__body {
-    height: 880px;
-    background: #E2F0EF url("/img/check-up/doctor-working-table.jpg") top left no-repeat;
-  }
-}
-
-.check-up__body {
+  z-index: 2;
   padding: 53px 0 0 63px;
 }
 
@@ -541,8 +650,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .check-up__button {
@@ -576,12 +685,12 @@ body {
   margin-right: 14px;
 }
 
-.check-up__button_green {
+.button_green {
   background: #0DBC91;
   color: #FFFFFF;
 }
 
-.check-up__button_border {
+.button_border {
   border: 1px solid #0DBC91;
   font-family: "PT Sans Caption";
   font-style: normal;
@@ -591,12 +700,56 @@ body {
   text-align: center;
   color: #0DBC91;
 }
-.check-up__button_border:hover, .check-up__button_border:active {
+.button_border:hover, .button_border:active {
   color: #FFFFFF;
   background: #0DBC91;
   border: 1px solid #0DBC91;
 }
 
+.check-up__image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: auto;
+  width: 100%;
+}
+
+@media (min-width: 1192px) {
+  .check-up__content::before {
+    content: "";
+    /* background-color: #E2F0EF; */
+    position: absolute;
+    left: 98%;
+    top: 0px;
+    height: 100%;
+    width: 174px; /* Ширина нижней стороны трапеции */
+    border-bottom: 440px solid #E2F0EF; /* Высота трапеции */
+    border-left: 0px solid transparent; /* Ширина верхней стороны трапеции */
+    border-right: 117px solid transparent; /* Ширина верхней стороны трапеции */
+    overflow: hidden;
+    z-index: 1;
+  }
+}
+@media (max-width: 1191px) {
+  .check-up__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .check-up__image {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .check-up__content {
+    width: 100%;
+  }
+}
 /*------page__navigation--------------*/
 .navigation__container {
   display: -webkit-box;
@@ -664,12 +817,44 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+@media (max-width: 735px) {
+  .footer__main .contacts__logo {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .footer__main .menu__list {
+    margin-top: 31px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+  }
+  .footer__main .menu__list .menu__item:not(:last-child) {
+    padding-bottom: 15px;
+  }
+  .footer__main .contacts__social {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
 }
 
 .contacts__social {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .social__item:not(:last-child) {
